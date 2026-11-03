@@ -1,0 +1,318 @@
+{
+ "version": 1,
+ "note": "ramMb·minPerHour 는 가정값(참고용 추정). sha256 은 2026-11-02 Hugging Face/GitHub 메타데이터 기준.",
+ "models": [
+  {
+   "id": "vad-silero",
+   "kind": "vad",
+   "name": "Silero VAD",
+   "tier": 0,
+   "ramMb": 50,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 0,
+   "files": [
+    {
+     "name": "silero_vad.onnx",
+     "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx",
+     "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6",
+     "size": 643854
+    }
+   ]
+  },
+  {
+   "id": "whisper-tiny",
+   "kind": "stt",
+   "name": "Whisper tiny (int8)",
+   "tier": 0,
+   "ramMb": 500,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 6,
+   "files": [
+    {
+     "name": "encoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-encoder.int8.onnx",
+     "sha256": "d24fb083ae3b1041fc24e97971d60e280c9342201fbb67b0ab428a8b4a51a434",
+     "size": 12937772
+    },
+    {
+     "name": "decoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-decoder.int8.onnx",
+     "sha256": "d2fece8dd42771f1df975c6c0445770d0c292bf7547c2cae04a6c0cc57540925",
+     "size": 89855401
+    },
+    {
+     "name": "tokens.txt",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-tokens.txt",
+     "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+     "size": 816730
+    }
+   ]
+  },
+  {
+   "id": "whisper-base",
+   "kind": "stt",
+   "name": "Whisper base (int8)",
+   "tier": 0,
+   "ramMb": 700,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 9,
+   "files": [
+    {
+     "name": "encoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/main/base-encoder.int8.onnx",
+     "sha256": "0b8fb1304b6109976038efff5ace81720e00386f3ff6b54ee8c75291ca0a1e11",
+     "size": 29120534
+    },
+    {
+     "name": "decoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/main/base-decoder.int8.onnx",
+     "sha256": "9759d217388a01b3a4c7c15533201067b48ae819c4daafc8624e64b9409dc02d",
+     "size": 130672026
+    },
+    {
+     "name": "tokens.txt",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/main/base-tokens.txt",
+     "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+     "size": 816730
+    }
+   ]
+  },
+  {
+   "id": "whisper-small",
+   "kind": "stt",
+   "name": "Whisper small (int8)",
+   "tier": 1,
+   "ramMb": 1300,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 20,
+   "files": [
+    {
+     "name": "encoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-small/resolve/main/small-encoder.int8.onnx",
+     "sha256": "4cbe7b22fa9026b843b60a68640c747de05bafb1a11b57edc0e66c232d9f33a9",
+     "size": 112442483
+    },
+    {
+     "name": "decoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-small/resolve/main/small-decoder.int8.onnx",
+     "sha256": "acad50b5c782696e91b55914cc5ab4f756f1532f76e22aa6fc615f39fb69a8ee",
+     "size": 262226114
+    },
+    {
+     "name": "tokens.txt",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-small/resolve/main/small-tokens.txt",
+     "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+     "size": 816730
+    }
+   ]
+  },
+  {
+   "id": "whisper-turbo",
+   "kind": "stt",
+   "name": "Whisper turbo (int8)",
+   "tier": 2,
+   "ramMb": 2600,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 25,
+   "files": [
+    {
+     "name": "encoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-turbo/resolve/main/turbo-encoder.int8.onnx",
+     "sha256": "b02dcdf54f348741e93fe732b67d933c8dcb6735655f710640143081db38878b",
+     "size": 674716297
+    },
+    {
+     "name": "decoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-turbo/resolve/main/turbo-decoder.int8.onnx",
+     "sha256": "20accd02388482eb3a46bd615631adfdc85e1eb2c7db9ea3f02a40ffe6b81547",
+     "size": 361080764
+    },
+    {
+     "name": "tokens.txt",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-turbo/resolve/main/turbo-tokens.txt",
+     "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+     "size": 816730
+    }
+   ]
+  },
+  {
+   "id": "whisper-medium",
+   "kind": "stt",
+   "name": "Whisper medium (int8)",
+   "tier": 2,
+   "ramMb": 2800,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 45,
+   "files": [
+    {
+     "name": "encoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-medium/resolve/main/medium-encoder.int8.onnx",
+     "sha256": "1c54582b4d829de0089f6cb63bbbdb3bf7555398bacaf855fbecf1a84dfd193e",
+     "size": 374196283
+    },
+    {
+     "name": "decoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-medium/resolve/main/medium-decoder.int8.onnx",
+     "sha256": "595d00a338a365a7bfa0ca7f296cabc639583bef770ab6130df90f49a6412747",
+     "size": 571059257
+    },
+    {
+     "name": "tokens.txt",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-medium/resolve/main/medium-tokens.txt",
+     "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+     "size": 816730
+    }
+   ]
+  },
+  {
+   "id": "whisper-large-v3",
+   "kind": "stt",
+   "name": "Whisper large-v3 (int8)",
+   "tier": 3,
+   "ramMb": 4800,
+   "license": "MIT",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 70,
+   "files": [
+    {
+     "name": "encoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-large-v3/resolve/main/large-v3-encoder.int8.onnx",
+     "sha256": "d531cf17248acc43e8c09b472a0877055e770877857a5332fc1304b36534ec85",
+     "size": 766671985
+    },
+    {
+     "name": "decoder.onnx",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-large-v3/resolve/main/large-v3-decoder.int8.onnx",
+     "sha256": "ebc6bfd88e162a46cb3edee8a7e727e1dcbc65cabecb19e2573695e4d495e1af",
+     "size": 1008265203
+    },
+    {
+     "name": "tokens.txt",
+     "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-large-v3/resolve/main/large-v3-tokens.txt",
+     "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+     "size": 816730
+    }
+   ]
+  },
+  {
+   "id": "qwen2.5-0.5b",
+   "kind": "llm",
+   "name": "Qwen2.5 0.5B Instruct (Q4_K_M)",
+   "tier": 0,
+   "ramMb": 1000,
+   "license": "Apache-2.0",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 2,
+   "files": [
+    {
+     "name": "model.gguf",
+     "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+     "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+     "size": 491400032
+    }
+   ]
+  },
+  {
+   "id": "qwen2.5-1.5b",
+   "kind": "llm",
+   "name": "Qwen2.5 1.5B Instruct (Q4_K_M)",
+   "tier": 1,
+   "ramMb": 2000,
+   "license": "Apache-2.0",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 4,
+   "files": [
+    {
+     "name": "model.gguf",
+     "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+     "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+     "size": 1117320736
+    }
+   ]
+  },
+  {
+   "id": "qwen3-4b",
+   "kind": "llm",
+   "name": "Qwen3 4B Instruct 2507 (Q4_K_M)",
+   "tier": 2,
+   "ramMb": 4000,
+   "license": "Apache-2.0",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 8,
+   "files": [
+    {
+     "name": "model.gguf",
+     "url": "https://huggingface.co/bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+     "sha256": "2fde00ce69dd4899c70d020845e2638353015bba0fdf161b3eb965f2bca4464e",
+     "size": 2497280736
+    }
+   ]
+  },
+  {
+   "id": "qwen2.5-7b",
+   "kind": "llm",
+   "name": "Qwen2.5 7B Instruct (Q4_K_M)",
+   "tier": 3,
+   "ramMb": 6500,
+   "license": "Apache-2.0",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 12,
+   "files": [
+    {
+     "name": "model.gguf",
+     "url": "https://huggingface.co/bartowski/Qwen2.5-7B-Instruct-GGUF/resolve/main/Qwen2.5-7B-Instruct-Q4_K_M.gguf",
+     "sha256": "65b8fcd92af6b4fefa935c625d1ac27ea29dcb6ee14589c55a8f115ceaaa1423",
+     "size": 4683074240
+    }
+   ]
+  },
+  {
+   "id": "qwen2.5-14b",
+   "kind": "llm",
+   "name": "Qwen2.5 14B Instruct (Q4_K_M)",
+   "tier": 4,
+   "ramMb": 11000,
+   "license": "Apache-2.0",
+   "languages": [
+    "*"
+   ],
+   "minPerHour": 20,
+   "files": [
+    {
+     "name": "model.gguf",
+     "url": "https://huggingface.co/bartowski/Qwen2.5-14B-Instruct-GGUF/resolve/main/Qwen2.5-14B-Instruct-Q4_K_M.gguf",
+     "sha256": "e47ad95dad6ff848b431053b375adb5d39321290ea2c638682577dafca87c008",
+     "size": 8988110976
+    }
+   ]
+  }
+ ]
+}

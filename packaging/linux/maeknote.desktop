@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MaekNote
+Comment=Transcribe and summarize recordings on-device
+Exec=maeknote
+Icon=maeknote
+Categories=AudioVideo;Office;
+Terminal=false

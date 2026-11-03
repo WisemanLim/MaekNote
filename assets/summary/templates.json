@@ -1,0 +1,325 @@
+{
+ "_about": "요약 템플릿 (출력 언어별 섹션 제목·작성 지침·보통 길이 기준 최대 항목 수). assets 이므로 수정 후 다시 빌드해야 반영됩니다.",
+ "_sources": [
+  "https://www.atlassian.com/software/confluence/templates/meeting-minutes",
+  "https://asana.com/templates/meeting-minutes",
+  "https://slack.com/blog/productivity/meeting-minutes-template",
+  "https://www.fyxer.com/blog/how-to-format-meeting-minutes",
+  "https://www.up.edu/learningcommons/files/guides/note-taking-files/cornell-notes.pdf",
+  "https://ucalgary.ca/sites/default/files/teams/23/cornell-note-taking-method-tip-sheet.pdf",
+  "https://www.usercall.co/templates/user-interview-analysis-template",
+  "https://dscout.com/people-nerds/user-research-summaries",
+  "https://slite.com/learn/how-to-write-an-executive-summary",
+  "https://datamarks.substack.com/p/tl-dr-essentials"
+ ],
+ "prompts": {
+  "ko": {
+   "system": "당신은 녹음 전사본을 정리하는 전문 서기입니다. 전사본은 음성 인식 결과라 오인식·말더듬·반복·군더더기가 섞여 있습니다. 문맥상 명백한 오인식은 바로잡고, 군더더기와 반복은 빼고, 전사본에 없는 사실은 절대 만들지 마세요. 자료의 각 줄은 [S번호] 로 시작합니다.",
+   "refine": "<전사본>\n{material}\n</전사본>\n\n작업: 위 전사본 일부를 정제된 사실 노트로 바꾸세요. 오인식은 문맥에 맞게 고치고 군더더기·반복은 빼세요. 사람·숫자·날짜·결정·할 일은 빠뜨리지 마세요.\n규칙: 각 항목은 \"- \" 로 시작하는 한 문장이고, 끝에 근거 줄 번호를 [S3] 또는 [S3-S5] 형식으로 붙입니다.",
+   "section": "<자료>\n{material}\n</자료>\n\n문서 종류: {purpose}\n지금 쓸 부분: {title} — {guide}\n규칙: 자료에서 이 부분에 해당하는 내용만 최대 {max}개의 \"- \" 항목으로 쓰세요. 한 항목은 정제된 한 문장으로 쓰고(원문 문장을 그대로 복사하지 말 것), 끝에 근거 [S번호] 를 붙이세요. 해당 내용이 없으면 \"- {none}\" 한 줄만 쓰세요.",
+   "none": "없음",
+   "example": "정제한 문장"
+  },
+  "en": {
+   "system": "You are a professional note-taker cleaning up recording transcripts. The transcript comes from speech recognition, so it contains misrecognitions, stutters, repetition and filler. Fix misrecognitions that are obvious from context, drop filler and repetition, and never invent facts that are not in the transcript. Each line of the material starts with [S<number>]. Write in English even if the transcript is in another language.",
+   "refine": "<transcript>\n{material}\n</transcript>\n\nTask: turn this part of the transcript into clean factual notes. Fix misrecognitions from context and drop filler and repetition. Keep every person, number, date, decision and task.\nRules: each item is one sentence starting with \"- \" and ends with its source lines as [S3] or [S3-S5].",
+   "section": "<material>\n{material}\n</material>\n\nDocument type: {purpose}\nSection to write now: {title} — {guide}\nRules: write only what belongs to this section, at most {max} items, each starting with \"- \". Each item is one clean sentence (do not copy transcript sentences verbatim) ending with its source [S<number>]. If nothing applies, write only \"- {none}\".",
+   "none": "None",
+   "example": "cleaned point"
+  }
+ },
+ "templates": {
+  "meeting": {
+   "purpose": {
+    "ko": "회의록",
+    "en": "meeting minutes"
+   },
+   "sections": [
+    {
+     "id": "overview",
+     "title": {
+      "ko": "회의 개요",
+      "en": "Overview"
+     },
+     "guide": {
+      "ko": "회의의 목적과 주제, 언급된 경우 일시·장소·참석자",
+      "en": "purpose and topic of the meeting; date, place and attendees if mentioned"
+     },
+     "max": 3
+    },
+    {
+     "id": "discussion",
+     "title": {
+      "ko": "안건별 논의",
+      "en": "Discussion by agenda item"
+     },
+     "guide": {
+      "ko": "안건(주제)마다 무엇이 논의되었는지 한 문장씩",
+      "en": "one sentence per agenda topic describing what was discussed"
+     },
+     "max": 6
+    },
+    {
+     "id": "decisions",
+     "title": {
+      "ko": "결정사항",
+      "en": "Decisions"
+     },
+     "guide": {
+      "ko": "무엇이 결정되었는지(결정한 사람이 언급되면 포함)",
+      "en": "what was decided (include who decided if mentioned)"
+     },
+     "max": 5
+    },
+    {
+     "id": "actions",
+     "title": {
+      "ko": "액션 아이템",
+      "en": "Action items"
+     },
+     "guide": {
+      "ko": "누가 무엇을 언제까지 하기로 했는지 한 문장씩 (언급된 담당자·기한만 포함)",
+      "en": "who will do what by when, one sentence each (include owner and date only if mentioned)"
+     },
+     "max": 6
+    },
+    {
+     "id": "open",
+     "title": {
+      "ko": "미결 사항 · 다음 회의",
+      "en": "Open issues & next meeting"
+     },
+     "guide": {
+      "ko": "결론이 나지 않은 질문, 다음 회의 일정(언급된 경우)",
+      "en": "unresolved questions and the next meeting date if mentioned"
+     },
+     "max": 3
+    }
+   ]
+  },
+  "lecture": {
+   "purpose": {
+    "ko": "강의노트(코넬 노트 방식)",
+    "en": "lecture notes (Cornell method)"
+   },
+   "sections": [
+    {
+     "id": "topic",
+     "title": {
+      "ko": "주제 · 개요",
+      "en": "Topic & overview"
+     },
+     "guide": {
+      "ko": "강의 주제와 다루는 범위",
+      "en": "the lecture topic and what it covers"
+     },
+     "max": 2
+    },
+    {
+     "id": "concepts",
+     "title": {
+      "ko": "핵심 개념 · 정의",
+      "en": "Key concepts & definitions"
+     },
+     "guide": {
+      "ko": "강의에 나온 핵심 용어와 그 뜻을 한 문장씩",
+      "en": "each key term from the lecture with its meaning, one sentence each"
+     },
+     "max": 6
+    },
+    {
+     "id": "notes",
+     "title": {
+      "ko": "주요 내용",
+      "en": "Main points"
+     },
+     "guide": {
+      "ko": "소주제별 설명·근거·예시",
+      "en": "explanations, reasons and examples per subtopic"
+     },
+     "max": 8
+    },
+    {
+     "id": "cues",
+     "title": {
+      "ko": "복습 질문",
+      "en": "Review questions"
+     },
+     "guide": {
+      "ko": "내용을 확인하는 질문 형태(답은 강의 내용에 있어야 함)",
+      "en": "questions that check understanding (answers must be in the lecture)"
+     },
+     "max": 4
+    },
+    {
+     "id": "summary",
+     "title": {
+      "ko": "요약",
+      "en": "Summary"
+     },
+     "guide": {
+      "ko": "강의 전체를 2~3문장으로 압축",
+      "en": "the whole lecture condensed into 2-3 sentences"
+     },
+     "max": 3
+    }
+   ]
+  },
+  "interview": {
+   "purpose": {
+    "ko": "인터뷰 요약",
+    "en": "interview summary"
+   },
+   "sections": [
+    {
+     "id": "profile",
+     "title": {
+      "ko": "인터뷰 개요",
+      "en": "Context & interviewee"
+     },
+     "guide": {
+      "ko": "인터뷰 목적, 대상자 배경(언급된 경우)",
+      "en": "purpose of the interview and the interviewee's background if mentioned"
+     },
+     "max": 3
+    },
+    {
+     "id": "themes",
+     "title": {
+      "ko": "핵심 주제",
+      "en": "Key themes"
+     },
+     "guide": {
+      "ko": "반복해서 나온 주제나 문제",
+      "en": "themes or problems that came up"
+     },
+     "max": 5
+    },
+    {
+     "id": "qa",
+     "title": {
+      "ko": "주요 질문과 답변",
+      "en": "Key questions & answers"
+     },
+     "guide": {
+      "ko": "질문마다 질문 내용과 답변의 요지를 한 문장씩",
+      "en": "for each question, what was asked and the gist of the answer in one sentence"
+     },
+     "max": 6
+    },
+    {
+     "id": "quotes",
+     "title": {
+      "ko": "인상적인 발언",
+      "en": "Notable quotes"
+     },
+     "guide": {
+      "ko": "핵심을 보여주는 실제 발언을 따옴표로 (뜻이 바뀌지 않게 오인식만 정리)",
+      "en": "actual statements that capture key points, in quotation marks (fix only misrecognitions)"
+     },
+     "max": 4
+    },
+    {
+     "id": "insights",
+     "title": {
+      "ko": "시사점 · 후속 조치",
+      "en": "Insights & follow-ups"
+     },
+     "guide": {
+      "ko": "새롭게 알게 된 점, 예상과 다른 점, 다음에 할 일",
+      "en": "what was learned, surprises and next steps"
+     },
+     "max": 4
+    }
+   ]
+  },
+  "context": {
+   "purpose": {
+    "ko": "문맥 요약",
+    "en": "context summary"
+   },
+   "sections": [
+    {
+     "id": "background",
+     "title": {
+      "ko": "배경 · 목적",
+      "en": "Background & purpose"
+     },
+     "guide": {
+      "ko": "이 대화·발표가 나온 배경과 목적",
+      "en": "why this conversation or talk happened and its purpose"
+     },
+     "max": 3
+    },
+    {
+     "id": "flow",
+     "title": {
+      "ko": "흐름",
+      "en": "Flow"
+     },
+     "guide": {
+      "ko": "시간 순서대로 이야기가 전개된 단계",
+      "en": "the stages of the discussion in time order"
+     },
+     "max": 6
+    },
+    {
+     "id": "points",
+     "title": {
+      "ko": "핵심 내용",
+      "en": "Key points"
+     },
+     "guide": {
+      "ko": "가장 중요한 주장·사실",
+      "en": "the most important claims and facts"
+     },
+     "max": 5
+    },
+    {
+     "id": "conclusion",
+     "title": {
+      "ko": "결론 · 시사점",
+      "en": "Conclusion & implications"
+     },
+     "guide": {
+      "ko": "결론과 그 의미",
+      "en": "the conclusion and what it means"
+     },
+     "max": 3
+    }
+   ]
+  },
+  "brief": {
+   "purpose": {
+    "ko": "간단한 요약",
+    "en": "brief summary"
+   },
+   "sections": [
+    {
+     "id": "tldr",
+     "title": {
+      "ko": "한 줄 요약",
+      "en": "TL;DR"
+     },
+     "guide": {
+      "ko": "전체 내용을 한 문장으로",
+      "en": "the whole recording in one sentence"
+     },
+     "max": 1
+    },
+    {
+     "id": "key",
+     "title": {
+      "ko": "핵심 포인트",
+      "en": "Key points"
+     },
+     "guide": {
+      "ko": "꼭 기억할 내용",
+      "en": "what to remember"
+     },
+     "max": 5
+    }
+   ]
+  }
+ }
+}

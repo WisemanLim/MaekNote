@@ -1,0 +1,15 @@
+# maeknote — Fastlane (배포 스텁 / deploy stub; 시크릿은 ENV/CI 주입)
+# 참고: .ref-doc "Cli로 ios app을 testflight 배포"
+platform :ios do
+  lane :beta do
+    build_app(scheme: "Runner")              # flutter build ipa 산출물 사용 가능
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+end
+
+platform :android do
+  lane :beta do
+    # flutter build appbundle → build/app/outputs/bundle/release/app-release.aab
+    upload_to_play_store(track: "internal", aab: "build/app/outputs/bundle/release/app-release.aab")
+  end
+end

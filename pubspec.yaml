@@ -1,0 +1,45 @@
+name: maeknote
+description: "maeknote — Flutter app"
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  go_router: ^14.0.0
+  flutter_riverpod: ^2.5.0
+  media_kit: ^1.2.6
+  media_kit_libs_audio: ^1.0.7
+  file_picker: ^13.3.2
+  device_info_plus: ^13.3.0
+  flutter_secure_storage: ^11.2.0
+  sqlite3: ^3.5.2
+  path_provider: ^2.1.6
+  path: ^1.9.1
+  crypto: ^3.0.8
+  sherpa_onnx: ^2.0.1
+  llamadart: ^0.17.5
+  connectivity_plus: ^7.3.2
+  http: ^1.6.0
+  window_manager: ^0.5.2
+  screen_retriever: ^0.2.0
+  desktop_drop: ^0.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/models/manifest.json
+    - assets/i18n/
+    - assets/summary/templates.json

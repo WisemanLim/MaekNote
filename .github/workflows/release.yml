@@ -1,0 +1,51 @@
+name: release
+# v* 태그 push(또는 수동 실행) → 플랫폼별 설치 이미지(dist/) 빌드 → 아티팩트 + GitHub Release 첨부
+# 서명 비밀값은 저장소 Secrets 로만 주입 (DEPLOY-PROD-GUIDE.md §3)
+on:
+  push: { tags: ["v*"] }
+  workflow_dispatch:
+jobs:
+  dist:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-latest,   make: "dist-macos dist-ios dist-android" }
+          - { os: ubuntu-latest,  make: "dist-linux" }
+          - { os: windows-latest, make: "" }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { channel: stable, flutter-version: 3.41.9 }
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ninja-build libgtk-3-dev libmpv-dev libsecret-1-dev libjsoncpp-dev
+      # .env.prod 는 커밋하지 않으므로 Secrets 에서 만든다 (없으면 .env.example)
+      - shell: bash
+        env: { ENV_PROD: "${{ secrets.ENV_PROD }}" }
+        run: if [ -n "$ENV_PROD" ]; then printf '%s\n' "$ENV_PROD" > .env.prod; else cp .env.example .env.prod; fi
+      - if: runner.os == 'macOS'
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEY_PROPERTIES: ${{ secrets.ANDROID_KEY_PROPERTIES }}
+        run: |
+          if [ -n "$ANDROID_KEYSTORE_B64" ]; then
+            echo "$ANDROID_KEYSTORE_B64" | base64 --decode > android/app/upload-keystore.jks
+            printf '%s\n' "$ANDROID_KEY_PROPERTIES" > android/key.properties
+          fi
+      - run: flutter pub get
+      - if: matrix.make != ''
+        run: make ${{ matrix.make }}
+      - if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          flutter build windows --release --dart-define-from-file=.env.prod
+          $v = (Select-String -Path pubspec.yaml -Pattern '^version:\s*([^+]+)').Matches[0].Groups[1].Value.Trim()
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Compress-Archive -Force -Path build/windows/x64/runner/Release/* -DestinationPath "dist/MaekNote-$v-windows-x64.zip"
+      - uses: actions/upload-artifact@v4
+        with: { name: "dist-${{ runner.os }}", path: dist/* }
+      - if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with: { files: "dist/*" }

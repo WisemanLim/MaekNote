@@ -1,0 +1,12 @@
+build/
+dist/
+.dart_tool/
+.git/
+.idea/
+.omc/
+.env.local
+ios/Pods/
+macos/Pods/
+android/.gradle/
+test/impl/
+**/.DS_Store
